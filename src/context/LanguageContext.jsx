@@ -133,7 +133,7 @@ const translations = {
     whatsappPhoneLabel: 'رقم الموبايل:',
     whatsappAddressLabel: 'العنوان:',
     whatsappNoteLabel: 'ملاحظات:',
-    freeGiftBadge: 'هدية مجانية',
+    freeGiftBadge: 'Free Gift',
     whatsappFreeGiftLabel: 'هدية مجانية - 0 ج.م',
     promoProgressText: (remaining) =>
       `Add ${remaining} EGP more to unlock a free item (up to 50 EGP)`,

@@ -5,7 +5,7 @@ import {
   useCart,
 } from '../context/CartContext';
 import { useLanguage } from '../context/LanguageContext';
-import { getLocalizedMenu, menuById } from '../data/menu';
+import { getLocalizedMenu, menuById, rawMenuData } from '../data/menu';
 
 /**
  * City Drink's official WhatsApp number (with country code, no '+').
@@ -29,39 +29,68 @@ function loadInitialCustomer() {
 }
 
 /**
- * Resolves the display name of a cart item in the active language (defaulting to Arabic).
+ * Resolves the display name of a cart item for on-screen cart drawer display in the active language.
  */
 function getCartItemName(item, lang = 'ar') {
-  const menuEntry = menuById.get(item.id);
-  return menuEntry?.[lang]?.name ?? item?.[lang]?.name ?? item.ar?.name ?? item.name;
+  const numId = Number(item?.id);
+  const menuEntry =
+    (!Number.isNaN(numId) ? menuById.get(numId) : null) ||
+    menuById.get(item?.id);
+
+  return menuEntry?.[lang]?.name ?? item?.[lang]?.name ?? item?.name ?? '';
+}
+
+/**
+ * Resolves the Arabic name of a cart item for WhatsApp ordering with full fallback support
+ * (numeric ID, string ID, English/Arabic name lookup in menu data).
+ */
+function getCartItemArabicName(item) {
+  if (!item) return '';
+
+  const numId = Number(item.id);
+  const byNum = !Number.isNaN(numId) ? menuById.get(numId) : null;
+  if (byNum?.ar?.name) return byNum.ar.name;
+
+  const byId = menuById.get(item.id);
+  if (byId?.ar?.name) return byId.ar.name;
+
+  const raw = rawMenuData.find(
+    (entry) =>
+      entry.id === item.id ||
+      entry.id === numId ||
+      (item.name && entry.en?.name?.toLowerCase() === String(item.name).toLowerCase()) ||
+      (item.name && entry.ar?.name === item.name)
+  );
+  if (raw?.ar?.name) return raw.ar.name;
+
+  return item.ar?.name ?? item.name ?? '';
 }
 
 /**
  * Formats cart items (including any promo gift) and delivery details into a WhatsApp order message.
- * Note: Product names are always formatted in Arabic (for both Arabic and English UI modes)
- * so staff can easily identify the exact drinks to prepare.
+ * All item names, totals, and labels are sent in Arabic so restaurant staff can clearly fulfill orders.
  */
-function buildWhatsAppOrderMessage(cartItems, totalPrice, customer, note, t) {
+function buildWhatsAppOrderMessage(cartItems, totalPrice, customer, note) {
   const lines = cartItems.map((item) => {
-    const itemName = getCartItemName(item, 'ar');
+    const itemName = getCartItemArabicName(item);
     if (item.isFree) {
-      return `- ${item.quantity}x ${itemName} (${t.whatsappFreeGiftLabel})`;
+      return `- ${item.quantity}x ${itemName} (هدية مجانية - 0 ج.م)`;
     }
-    return `- ${item.quantity}x ${itemName} (${item.price * item.quantity} ${t.currency})`;
+    return `- ${item.quantity}x ${itemName} (${item.price * item.quantity} ج.م)`;
   });
 
   const parts = [
-    t.whatsappGreeting,
+    'مرحباً سيتي درينك، أريد طلب:',
     ...lines,
-    `${t.whatsappTotalLabel} ${totalPrice} ${t.currency}`,
-    `${t.whatsappNameLabel} ${customer.name.trim()}`,
-    `${t.whatsappPhoneLabel} ${customer.phone.trim()}`,
-    `${t.whatsappAddressLabel} ${customer.address.trim()}`,
+    `الإجمالي: ${totalPrice} ج.م`,
+    `الاسم: ${customer.name.trim()}`,
+    `رقم الموبايل: ${customer.phone.trim()}`,
+    `العنوان: ${customer.address.trim()}`,
   ];
 
   const trimmedNote = note.trim();
   if (trimmedNote) {
-    parts.push(`${t.whatsappNoteLabel} ${trimmedNote}`);
+    parts.push(`ملاحظات: ${trimmedNote}`);
   }
 
   return parts.join('\n');
@@ -168,8 +197,7 @@ export default function CartModal() {
       cartItems,
       totalPrice,
       customer,
-      orderNote,
-      t
+      orderNote
     );
     const formattedMessage = encodeURIComponent(rawMessage);
     window.open(
