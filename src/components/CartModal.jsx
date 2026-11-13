@@ -29,19 +29,21 @@ function loadInitialCustomer() {
 }
 
 /**
- * Resolves the display name of a cart item in the active language.
+ * Resolves the display name of a cart item in the active language (defaulting to Arabic).
  */
-function getCartItemName(item, lang) {
+function getCartItemName(item, lang = 'ar') {
   const menuEntry = menuById.get(item.id);
-  return menuEntry?.[lang]?.name ?? item.name;
+  return menuEntry?.[lang]?.name ?? item?.[lang]?.name ?? item.ar?.name ?? item.name;
 }
 
 /**
  * Formats cart items (including any promo gift) and delivery details into a WhatsApp order message.
+ * Note: Product names are always formatted in Arabic (for both Arabic and English UI modes)
+ * so staff can easily identify the exact drinks to prepare.
  */
-function buildWhatsAppOrderMessage(cartItems, totalPrice, customer, note, lang, t) {
+function buildWhatsAppOrderMessage(cartItems, totalPrice, customer, note, t) {
   const lines = cartItems.map((item) => {
-    const itemName = getCartItemName(item, lang);
+    const itemName = getCartItemName(item, 'ar');
     if (item.isFree) {
       return `- ${item.quantity}x ${itemName} (${t.whatsappFreeGiftLabel})`;
     }
@@ -167,7 +169,6 @@ export default function CartModal() {
       totalPrice,
       customer,
       orderNote,
-      lang,
       t
     );
     const formattedMessage = encodeURIComponent(rawMessage);
