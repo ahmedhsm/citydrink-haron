@@ -1,0 +1,290 @@
+/**
+ * City Drink Bilingual Digital Menu Data (Arabic & English/Franco)
+ */
+
+export const ALL_CATEGORY = 'all';
+
+export const categories = [
+  { id: ALL_CATEGORY, ar: 'الكل', en: 'All' },
+  { id: 'mixat', ar: 'ميكسات وطاقة', en: 'Mixat' },
+  { id: 'mojito', ar: 'موهيتو', en: 'Mojito' },
+  { id: 'boba', ar: 'بوبا شيك', en: 'Boba Shake' },
+  { id: 'fresh', ar: 'عصائر فريش', en: '3asayer Fresh' },
+  { id: 'milkshake', ar: 'ميلك شيك', en: 'Milkshake' },
+  { id: 'diet', ar: 'دايت وصحي', en: 'Diet w Se7y' },
+  { id: 'halawyat', ar: 'حلويات', en: 'Halawyat' },
+  { id: 'gym', ar: 'جيم', en: 'GYM' },
+];
+
+const categoryMap = new Map(categories.map((cat) => [cat.id, cat]));
+
+export const rawMenuData = [
+  // --- Mixat / ميكسات وطاقة ---
+  {
+    id: 1,
+    categoryId: 'mixat',
+    price: 60,
+    image: '/images/9e94ec72-de29-4394-86d0-de19bc40cb3a.webp',
+    ar: { name: 'بطوط', description: 'فراولة، موز، آيس كريم' },
+    en: { name: 'Batout', description: 'Farwla, Moz, Ice cream' },
+  },
+  {
+    id: 2,
+    categoryId: 'mixat',
+    price: 50,
+    image: '/images/9a9b17c6-5fbe-44b5-b008-9b010ed6d7fc.webp',
+    ar: { name: 'زبادو فراولة', description: 'زبادي، فراولة' },
+    en: { name: 'Zabado Farwla', description: 'Zabady, Farwla' },
+  },
+  {
+    id: 3,
+    categoryId: 'mixat',
+    price: 60,
+    image: '/images/watermarked_img_17781328477478781100.webp',
+    ar: { name: 'كثافة', description: 'مانجو، موز، آيس كريم' },
+    en: { name: 'Kasaafa', description: 'Mango, Moz, Ice cream' },
+  },
+  {
+    id: 4,
+    categoryId: 'mixat',
+    price: 60,
+    image: '/images/watermarked_img_15699785147070036422.webp',
+    ar: { name: 'هافانا', description: 'أناناس، تفاح، برتقال' },
+    en: { name: 'Havana', description: 'Ananas, Tofah, Borto2an' },
+  },
+  {
+    id: 5,
+    categoryId: 'mixat',
+    price: 60,
+    image: '/images/4fcd08a0-8548-4eff-b757-760da38f8272.webp',
+    ar: { name: 'الاصفهانى', description: 'مانجو، زبادي، آيس كريم' },
+    en: { name: 'El Asfahany', description: 'Mango, Zabady, Ice cream' },
+  },
+  {
+    id: 6,
+    categoryId: 'mixat',
+    price: 110,
+    image: '/images/watermarked_img_2307759776120667254.webp',
+    ar: { name: 'مو صلاح', description: 'أفوكادو، كاجو' },
+    en: { name: 'Mo Salah', description: 'Avocado, Cajo' },
+  },
+  {
+    id: 7,
+    categoryId: 'mixat',
+    price: 110,
+    image: '/images/c6ce84be-1ce1-4dbf-ad71-c3d572519239.webp',
+    ar: { name: 'جاجوار', description: 'أفوكادو، جرجير، كاجو، عسل' },
+    en: { name: 'Jaguar', description: 'Avocado, Garger, Cajo, Asal' },
+  },
+  {
+    id: 8,
+    categoryId: 'mixat',
+    price: 60,
+    image: '/images/f355b62c-f711-4250-932a-17d5ec26769a.webp',
+    ar: { name: 'صاروخ', description: 'أناناس، موز، آيس كريم، مانجو' },
+    en: { name: 'Saroukh', description: 'Ananas, Moz, Ice cream, Mango' },
+  },
+  {
+    id: 9,
+    categoryId: 'mixat',
+    price: 60,
+    image: '/images/19440b86-047f-4b57-806f-3e7b74498855.webp',
+    ar: { name: 'بينا كولادا', description: 'أناناس، برتقال، جوز هند' },
+    en: { name: 'Pina Colada', description: 'Ananas, Borto2an, Goz hend' },
+  },
+
+  // --- Mojito / موهيتو ---
+  {
+    id: 10,
+    categoryId: 'mojito',
+    price: 50,
+    image: '/images/b0aac3b6-0118-462c-b6c0-0b403c7f6db6.webp',
+    ar: { name: 'برازيلى', description: 'ليمون، صودا، نعناع' },
+    en: { name: 'Brazilian', description: 'Lamoun, Soda, Na3na3' },
+  },
+  {
+    id: 11,
+    categoryId: 'mixat',
+    price: 50,
+    image: '/images/506b7e41-81bc-4d1f-8f7e-39b0663fb1e4.webp',
+    ar: { name: 'چمايكا', description: 'برتقال،اناناس ،خوخ' },
+    en: { name: 'jamayka', description: 'Borto2an, ananas, khokh' },
+  },
+  {
+    id: 12,
+    categoryId: 'mojito',
+    price: 50,
+    image: '/images/watermarked_img_18020129138890613956.webp',
+    ar: { name: 'توت', description: 'توت، صودا، ليمون' },
+    en: { name: 'Toot', description: 'Toot, Soda, Lamoun' },
+  },
+  {
+    id: 13,
+    categoryId: 'mojito',
+    price: 50,
+    image: '/images/watermarked_img_18299819113763820536.webp',
+    ar: { name: 'كريز', description: 'كريز، صودا، ليمون' },
+    en: { name: 'Cherry', description: 'Cherry, Soda, Lamoun' },
+  },
+  {
+    id: 14,
+    categoryId: 'mojito',
+    price: 50,
+    image: '/images/69470a91-5519-4d30-a8ed-63279cf62c3c.webp',
+    ar: { name: 'برتقال نعناع', description: 'برتقال، نعناع، صودا' },
+    en: { name: 'Orange Mint', description: 'Borto2an, Na3na3, Soda' },
+  },
+
+  // --- Boba Shake / بوبا شيك ---
+  {
+    id: 15,
+    categoryId: 'boba',
+    price: 70,
+    image: '/images/2b6bec7e-80bb-4796-b95a-550e8ef9059f.webp',
+    ar: { name: 'بوبا توت', description: 'بوبا، توت' },
+    en: { name: 'Boba Toot', description: 'Boba, Toot' },
+  },
+  {
+    id: 16,
+    categoryId: 'boba',
+    price: 70,
+    image: '/images/dfc8d10b-3ea4-4ea9-9a8c-449e69f40ec7.webp',
+    ar: { name: 'بوبا مانجو', description: 'بوبا، مانجو' },
+    en: { name: 'Boba Mango', description: 'Boba, Mango' },
+  },
+  {
+    id: 17,
+    categoryId: 'boba',
+    price: 70,
+    image: '/images/bd9760be-a24a-4cf6-b9ff-074545b80f9b.webp',
+    ar: { name: 'بوبا شوكولاتة', description: 'بوبا، شوكولاتة' },
+    en: { name: 'Boba Chocolate', description: 'Boba, Chocolate' },
+  },
+  {
+    id: 18,
+    categoryId: 'boba',
+    price: 70,
+    image: '/images/8079c0fd-1dac-402b-b61a-4e877e86d281.webp',
+    ar: { name: 'بوبا بطيخ', description: 'بوبا، بطيخ' },
+    en: { name: 'Boba Watermelon', description: 'Boba, Bateekh' },
+  },
+
+  // --- 3asayer Fresh / عصائر فريش ---
+  {
+    id: 19,
+    categoryId: 'fresh',
+    price: 50,
+    image: '/images/e6dfa2c3-8405-41ef-8131-adc04679012d.webp',
+    ar: { name: 'مانجو', description: 'عصير مانجو فريش' },
+    en: { name: 'Mango Fresh', description: 'Mango Fresh' },
+  },
+  {
+    id: 20,
+    categoryId: 'fresh',
+    price: 50,
+    image: '/images/b09668cf-5aa9-4e37-9c16-e476231f7390.webp',
+    ar: { name: 'فراولة', description: 'عصير فراولة فريش' },
+    en: { name: 'Farwla Fresh', description: 'Farwla Fresh' },
+  },
+  {
+    id: 21,
+    categoryId: 'fresh',
+    price: 25,
+    image: '/images/d6858ace-39b0-42e6-a4fd-e434085a2aab.webp',
+    ar: { name: 'قصب', description: 'عصير قصب فريش' },
+    en: { name: 'Asab Fresh', description: '3aser Asab Fresh' },
+  },
+
+  // --- Milkshake / ميلك شيك ---
+  {
+    id: 22,
+    categoryId: 'milkshake',
+    price: 50,
+    image: '/images/664a47fb-bb3b-446f-980e-da822028c764.webp',
+    ar: { name: 'أوريو', description: 'ميلك شيك أوريو، كريمة' },
+    en: { name: 'Shake Oreo', description: 'Milkshake Oreo, Crema' },
+  },
+  {
+    id: 23,
+    categoryId: 'milkshake',
+    price: 50,
+    image: '/images/662222c0-8fed-4b7e-86a3-3b1bed7e50f4.webp',
+    ar: { name: 'نوتيلا', description: 'ميلك شيك نوتيلا، كريمة' },
+    en: { name: 'Shake Nutella', description: 'Milkshake Nutella, Crema' },
+  },
+  {
+    id: 24,
+    categoryId: 'milkshake',
+    price: 50,
+    image: '/images/92289feb-be0e-481c-921c-282d1b65bc9b.webp',
+    ar: { name: 'كيت كات', description: 'ميلك شيك كيت كات، كريمة' },
+    en: { name: 'Shake Kitkat', description: 'Milkshake Kitkat, Crema' },
+  },
+
+  // --- Diet w Se7y / دايت وصحي ---
+  {
+    id: 25,
+    categoryId: 'diet',
+    price: 50,
+    image: '/images/6c067e78-86e1-4890-835f-b6d17cb559a1.webp',
+    ar: { name: 'عصير ريجيم', description: 'تفاح وكيوي' },
+    en: { name: '3aser Regim', description: 'Tofah w Kiwi' },
+  },
+
+  // --- Halawyat / حلويات ---
+  {
+    id: 26,
+    categoryId: 'halawyat',
+    price: 90,
+    image: '/images/36e196eb-53dc-4488-bd76-0a3fb906dcac.webp',
+    ar: { name: 'قنبلة', description: 'أرز بلبن، فواكه، قشطة، بسبوسة، كنافة' },
+    en: { name: 'Qonbela', description: 'Roz b laban, Fawakeh, Eshta, Basbousa, Konafa' },
+  },
+  {
+    id: 27,
+    categoryId: 'halawyat',
+    price: 110,
+    image: '/images/watermarked_img_3824842287094844660.webp',
+    ar: { name: 'الكبير اوى', description: 'أفوكادو، بلح، كيوي، تفاح، آيس كريم، مكسرات' },
+    en: { name: 'El Kebeer Awy', description: 'Avocado, Balah, Kiwi, Tofah, Ice cream, Mokasarat' },
+  },
+  {
+    id: 28,
+    categoryId: 'halawyat',
+    price: 70,
+    image: '/images/36e196eb-53dc-4488-bd76-0a3fb906dcac.webp',
+    ar: { name: 'رز ملوكي', description: 'أرز بلبن، فواكه' },
+    en: { name: 'Roz Malouky', description: 'Roz b laban, Fawakeh' },
+  },
+];
+
+/**
+ * Returns the localized label for a category id.
+ */
+export function getCategoryLabel(categoryId, lang = 'ar') {
+  const entry = categoryMap.get(categoryId);
+  return entry ? entry[lang] ?? entry.ar : categoryId;
+}
+
+/**
+ * Returns localized menu items for the active language while keeping searchable bilingual text.
+ */
+export function getLocalizedMenu(lang = 'ar') {
+  return rawMenuData.map((item) => {
+    const localized = item[lang] ?? item.ar;
+    return {
+      id: item.id,
+      categoryId: item.categoryId,
+      category: getCategoryLabel(item.categoryId, lang),
+      price: item.price,
+      image: item.image,
+      name: localized.name,
+      description: localized.description,
+      ar: item.ar,
+      en: item.en,
+    };
+  });
+}
+
+export const menuData = getLocalizedMenu('ar');
+export const menuById = new Map(rawMenuData.map((item) => [item.id, item]));
