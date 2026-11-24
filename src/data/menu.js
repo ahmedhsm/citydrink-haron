@@ -14,6 +14,7 @@ export const categories = [
   { id: 'diet', ar: 'دايت وصحي', en: 'Diet w Se7y' },
   { id: 'halawyat', ar: 'حلويات', en: 'Halawyat' },
   { id: 'gym', ar: 'جيم', en: 'GYM' },
+  { id: 'tasaly', ar: 'تسالي', en: 'Tasaly' },
 ];
 
 const categoryMap = new Map(categories.map((cat) => [cat.id, cat]));
@@ -23,7 +24,7 @@ export const rawMenuData = [
   {
     id: 1,
     categoryId: 'mixat',
-    price: 60,
+    price: 70,
     image: '/images/9e94ec72-de29-4394-86d0-de19bc40cb3a.webp',
     ar: { name: 'بطوط', description: 'فراولة، موز، آيس كريم' },
     en: { name: 'Batout', description: 'Farwla, Moz, Ice cream' },
@@ -47,7 +48,7 @@ export const rawMenuData = [
   {
     id: 4,
     categoryId: 'mixat',
-    price: 60,
+    price: 70,
     image: '/images/watermarked_img_15699785147070036422.webp',
     ar: { name: 'هافانا', description: 'أناناس، تفاح، برتقال' },
     en: { name: 'Havana', description: 'Ananas, Tofah, Borto2an' },
@@ -79,7 +80,7 @@ export const rawMenuData = [
   {
     id: 8,
     categoryId: 'mixat',
-    price: 60,
+    price: 70,
     image: '/images/f355b62c-f711-4250-932a-17d5ec26769a.webp',
     ar: { name: 'صاروخ', description: 'أناناس، موز، آيس كريم، مانجو' },
     en: { name: 'Saroukh', description: 'Ananas, Moz, Ice cream, Mango' },
@@ -87,7 +88,7 @@ export const rawMenuData = [
   {
     id: 9,
     categoryId: 'mixat',
-    price: 60,
+    price: 70,
     image: '/images/19440b86-047f-4b57-806f-3e7b74498855.webp',
     ar: { name: 'بينا كولادا', description: 'أناناس، برتقال، جوز هند' },
     en: { name: 'Pina Colada', description: 'Ananas, Borto2an, Goz hend' },
@@ -105,10 +106,10 @@ export const rawMenuData = [
   {
     id: 11,
     categoryId: 'mixat',
-    price: 50,
+    price: 70,
     image: '/images/506b7e41-81bc-4d1f-8f7e-39b0663fb1e4.webp',
-    ar: { name: 'چمايكا', description: 'برتقال،اناناس ،خوخ' },
-    en: { name: 'jamayka', description: 'Borto2an, ananas, khokh' },
+    ar: { name: 'چمايكا', description: 'برتقال، اناناس، خوخ' },
+    en: { name: 'Jamayka', description: 'Borto2an, Ananas, Khokh' },
   },
   {
     id: 12,
@@ -173,7 +174,7 @@ export const rawMenuData = [
   {
     id: 19,
     categoryId: 'fresh',
-    price: 50,
+    price: 45,
     image: '/images/e6dfa2c3-8405-41ef-8131-adc04679012d.webp',
     ar: { name: 'مانجو', description: 'عصير مانجو فريش' },
     en: { name: 'Mango Fresh', description: 'Mango Fresh' },
@@ -181,7 +182,7 @@ export const rawMenuData = [
   {
     id: 20,
     categoryId: 'fresh',
-    price: 50,
+    price: 40,
     image: '/images/b09668cf-5aa9-4e37-9c16-e476231f7390.webp',
     ar: { name: 'فراولة', description: 'عصير فراولة فريش' },
     en: { name: 'Farwla Fresh', description: 'Farwla Fresh' },
@@ -255,6 +256,160 @@ export const rawMenuData = [
     image: '/images/36e196eb-53dc-4488-bd76-0a3fb906dcac.webp',
     ar: { name: 'رز ملوكي', description: 'أرز بلبن، فواكه' },
     en: { name: 'Roz Malouky', description: 'Roz b laban, Fawakeh' },
+  },
+
+  // --- عصائر فريش جديدة ---
+  {
+    id: 29,
+    categoryId: 'fresh',
+    price: 40,
+    image: '/images/bateekh-fresh.webp',
+    ar: { name: 'بطيخ', description: 'عصير بطيخ فريش' },
+    en: { name: 'Watermelon Fresh', description: '3aser Bateekh Fresh' },
+  },
+  {
+    id: 30,
+    categoryId: 'fresh',
+    price: 40,
+    image: '/images/goafa-fresh.webp',
+    ar: { name: 'جوافة', description: 'عصير جوافة فريش' },
+    en: { name: 'Guava Fresh', description: '3aser Goafa Fresh' },
+  },
+  {
+    id: 31,
+    categoryId: 'fresh',
+    price: 40,
+    image: '/images/balah-laban.webp',
+    ar: { name: 'بلح باللبن', description: 'بلح باللبن' },
+    en: { name: 'Dates with Milk', description: 'Balah b laban' },
+  },
+  {
+    id: 32,
+    categoryId: 'fresh',
+    price: 40,
+    image: '/images/moz-laban.webp',
+    ar: { name: 'موز باللبن', description: 'موز باللبن' },
+    en: { name: 'Banana with Milk', description: 'Moz b laban' },
+  },
+  {
+    id: 33,
+    categoryId: 'fresh',
+    price: 40,
+    image: '/images/lemon-na3na3.webp',
+    ar: { name: 'ليمون نعناع', description: 'ليمون، نعناع' },
+    en: { name: 'Lemon Mint', description: 'Lemon, Na3na3' },
+  },
+  {
+    id: 34,
+    categoryId: 'fresh',
+    price: 40,
+    image: '/images/borto2an-fresh.webp',
+    ar: { name: 'برتقال', description: 'عصير برتقال فريش' },
+    en: { name: 'Orange Fresh', description: '3aser Borto2an Fresh' },
+  },
+
+  // --- حلويات جديدة ---
+  {
+    id: 35,
+    categoryId: 'halawyat',
+    price: 100,
+    image: '/images/salad-fawakeh-vip.webp',
+    ar: { name: 'فروت سلاد VIP', description: 'فروت سلاد، آيس كريم، مكسرات' },
+    en: { name: 'Fruit Salad VIP', description: 'Fruit Salad, Ice cream, Mokasarat' },
+  },
+  {
+    id: 36,
+    categoryId: 'halawyat',
+    price: 55,
+    image: '/images/roz-laban-konafa-basbosa.webp',
+    ar: { name: 'أرز باللبن كنافة وبسبوسة', description: 'أرز باللبن، كنافة، بسبوسة' },
+    en: { name: 'Roz b Laban Konafa & Basbousa', description: 'Roz b laban, Konafa, Basbousa' },
+  },
+  {
+    id: 37,
+    categoryId: 'halawyat',
+    price: 65,
+    image: '/images/roz-laban-fawakeh.webp',
+    ar: { name: 'أرز باللبن فواكه', description: 'أرز باللبن، فواكه' },
+    en: { name: 'Roz b Laban Fruits', description: 'Roz b laban, Fawakeh' },
+  },
+  {
+    id: 38,
+    categoryId: 'halawyat',
+    price: 80,
+    image: '/images/roz-laban-fawakeh-eshta.webp',
+    ar: { name: 'أرز باللبن فواكه قشطة', description: 'أرز باللبن، فواكه، قشطة' },
+    en: { name: 'Roz b Laban Fruits Eshta', description: 'Roz b laban, Fawakeh, Eshta' },
+  },
+
+  // --- موهيتو جديد ---
+  {
+    id: 39,
+    categoryId: 'mojito',
+    price: 50,
+    image: '/images/sunshine-mojito.webp',
+    ar: { name: 'صن شاين', description: 'صودا، برتقال، ليمون' },
+    en: { name: 'Sunshine Mojito', description: 'Soda, Borto2an, Lemon' },
+  },
+  {
+    id: 40,
+    categoryId: 'mojito',
+    price: 50,
+    image: '/images/passion-fruit-mojito.webp',
+    ar: { name: 'باشون فروت', description: 'صودا، باشون، ليمون' },
+    en: { name: 'Passion Fruit Mojito', description: 'Soda, Passion Fruit, Lemon' },
+  },
+
+  // --- بوبا شيك جديدة ---
+  {
+    id: 41,
+    categoryId: 'boba',
+    price: 70,
+    image: '/images/boba-passion-fruit.webp',
+    ar: { name: 'بوبا باشون فروت', description: 'بوبا، باشون فروت' },
+    en: { name: 'Boba Passion Fruit', description: 'Boba, Passion Fruit' },
+  },
+  {
+    id: 42,
+    categoryId: 'boba',
+    price: 70,
+    image: '/images/boba-farawla.webp',
+    ar: { name: 'بوبا فراولة', description: 'بوبا، فراولة' },
+    en: { name: 'Boba Strawberry', description: 'Boba, Farawla' },
+  },
+  {
+    id: 43,
+    categoryId: 'boba',
+    price: 70,
+    image: '/images/boba-ahwa.webp',
+    ar: { name: 'بوبا قهوة', description: 'بوبا، قهوة' },
+    en: { name: 'Boba Coffee', description: 'Boba, Ahwa' },
+  },
+
+  // --- تسالي / Tasaly ---
+  {
+    id: 44,
+    categoryId: 'tasaly',
+    price: 90,
+    image: '/images/cajo-khalat.webp',
+    ar: { name: 'كاجو', description: 'كاجو' },
+    en: { name: 'Cajo', description: 'Cajo' },
+  },
+  {
+    id: 45,
+    categoryId: 'tasaly',
+    price: 65,
+    image: '/images/sodany-khalat.webp',
+    ar: { name: 'سوداني', description: 'سوداني' },
+    en: { name: 'Sodany', description: 'Sodany' },
+  },
+  {
+    id: 46,
+    categoryId: 'tasaly',
+    price: 65,
+    image: '/images/leb-khalat.webp',
+    ar: { name: 'لب', description: 'لب' },
+    en: { name: 'Leb', description: 'Leb' },
   },
 ];
 
