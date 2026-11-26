@@ -411,6 +411,14 @@ export const rawMenuData = [
     ar: { name: 'لب', description: 'لب' },
     en: { name: 'Leb', description: 'Leb' },
   },
+  {
+    id: 47,
+    categoryId: 'milkshake',
+    price: 60,
+    image: '/images/nunieshake.webp',
+    ar: { name: 'نونيز شيك', description: 'ميلك شيك مانجو،جوزهند،فانيليا' },
+    en: { name: "nunie's shake", description: 'Milkshake mango,Coconut,vanilla' },
+  },
 ];
 
 /**
