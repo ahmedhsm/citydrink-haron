@@ -417,7 +417,7 @@ export const rawMenuData = [
     price: 60,
     image: '/images/nunieshake.webp',
     ar: { name: 'نونيز شيك', description: 'ميلك شيك مانجو،جوزهند،فانيليا' },
-    en: { name: "nunie's shake", description: 'Milkshake mango,Coconut,vanilla' },
+    en: { name: "nounie's shake", description: 'Milkshake mango,Coconut,vanilla' },
   },
 ];
 
